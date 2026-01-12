@@ -1,114 +1,223 @@
-def area_do_aluno():
+import json
+import os
+
+ARQ_ALUNOS = "alunos.json"
+ARQ_PROFESSORES = "professores.json"
+DIAS = ["segunda", "terca", "quarta", "quinta", "sexta"]
+
+
+# ================= ARQUIVOS =================
+
+def carregar(arq):
+    if os.path.exists(arq):
+        with open(arq, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+def salvar(arq, dados):
+    with open(arq, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
+
+
+alunos = carregar(ARQ_ALUNOS)
+professores = carregar(ARQ_PROFESSORES)
+
+
+# ================= UTIL =================
+
+def escolher_dia():
+    for i, d in enumerate(DIAS, 1):
+        print(f"{i} - {d.capitalize()}")
+    return DIAS[int(input("Dia: ")) - 1]
+
+
+def escolher_aluno():
+    for i, a in enumerate(alunos, 1):
+        print(f"{i} - {a['nome']}")
+    return alunos[int(input("Aluno: ")) - 1]
+
+
+# ================= ALUNOS =================
+
+def cadastrar_aluno():
+    alunos.append({
+        "nome": input("Nome: "),
+        "idade": int(input("Idade: ")),
+        "peso": float(input("Peso: ")),
+        "planos": {},
+        "frequencia": {}
+    })
+    salvar(ARQ_ALUNOS, alunos)
+
+def listar_alunos():
+    print(f"Total: {len(alunos)}")
+    for a in alunos:
+        print("-", a["nome"])
+
+def dados_alunos():
+    for a in alunos:
+        print(a)
+
+def excluir_aluno():
+    a = escolher_aluno()
+    alunos.remove(a)
+    salvar(ARQ_ALUNOS, alunos)
+
+
+def area_aluno():
     while True:
-        print("\n--area do aluno--")
-        print("A- fazer cadastro")
-        print("B- lista de alunos")
-        print("C- dados dos alunos")
-        print("0- voltar")
+        print("\n-- ÁREA DO ALUNO --")
+        print("A - Cadastrar")
+        print("B - Listar")
+        print("C - Dados")
+        print("D - Excluir")
+        print("0 - Voltar")
+        op = input("Opção: ").upper()
 
-        opcao = input("escolha uma opcao: ").upper()
+        if op == "A": cadastrar_aluno()
+        elif op == "B": listar_alunos()
+        elif op == "C": dados_alunos()
+        elif op == "D": excluir_aluno()
+        elif op == "0": break
 
-        if opcao == "A":
-            print("Cadastro de aluno")
-        elif opcao == "B":
-            print("Lista de alunos")
-        elif opcao == "C":
-            print("Dados dos alunos")
-        elif opcao == "0":
+
+# ================= PROFESSORES =================
+
+def cadastrar_professor():
+    professores.append({
+        "nome": input("Nome: "),
+        "area": input("Área: ")
+    })
+    salvar(ARQ_PROFESSORES, professores)
+
+def listar_professores():
+    print(f"Total: {len(professores)}")
+    for p in professores:
+        print("-", p["nome"])
+
+def dados_professores():
+    for p in professores:
+        print(p)
+
+def excluir_professor():
+    for i, p in enumerate(professores, 1):
+        print(i, p["nome"])
+    professores.pop(int(input("Excluir: ")) - 1)
+    salvar(ARQ_PROFESSORES, professores)
+
+
+def area_professor():
+    while True:
+        print("\n-- ÁREA DO PROFESSOR --")
+        print("A - Cadastrar")
+        print("B - Listar")
+        print("C - Dados")
+        print("D - Excluir")
+        print("0 - Voltar")
+        op = input("Opção: ").upper()
+
+        if op == "A": cadastrar_professor()
+        elif op == "B": listar_professores()
+        elif op == "C": dados_professores()
+        elif op == "D": excluir_professor()
+        elif op == "0": break
+
+
+# ================= PLANOS =================
+
+def cadastrar_plano():
+    aluno = escolher_aluno()
+    dia = escolher_dia()
+    grupo = input("Grupo muscular: ")
+    exercicios = []
+
+    while True:
+        ex = input("Exercício (enter p/ sair): ")
+        if not ex: break
+        exercicios.append(ex)
+
+    aluno["planos"][dia] = {
+        "grupo": grupo,
+        "exercicios": exercicios
+    }
+    salvar(ARQ_ALUNOS, alunos)
+
+
+# ================= FREQUÊNCIA =================
+
+def registrar_frequencia():
+    aluno = escolher_aluno()
+    dia = escolher_dia()
+
+    while True:
+        resp = input("Presente? (s/n): ").strip().lower()
+        if resp in ["s", "sim"]:
+            presente = True
+            break
+        elif resp in ["n", "nao", "não"]:
+            presente = False
             break
         else:
-            print("Opção inválida")
+            print("Digite apenas 's' ou 'n'.")
+
+    if presente:
+        while True:
+            try:
+                feitos = int(input("Quantos exercícios fez hoje? "))
+                break
+            except ValueError:
+                print("Digite um número válido.")
+    else:
+        feitos = 0
+
+    aluno["frequencia"][dia] = {
+        "presente": presente,
+        "feitos": feitos
+    }
+
+    salvar(ARQ_ALUNOS, alunos)
+    print("Frequência registrada com sucesso!")
 
 
-        
-
-def area_do_professor():
-    while True:
-        print("--area do professor--")
-        print("D- fazer cadastro")
-        print("E- lista de professores")
-        print("F- dados dos professores")
-        print("0 - voltar")
-
-        opcao = input("escolha um opcao: ").upper()
-
-        if opcao == "D":
-            print("Cadastro de professor")
-        elif opcao == "E":
-            print("Lista de professores")
-        elif opcao == "F":
-            print("Dados dos professores")
-        elif opcao == "0":
-            break
-        else:
-            print("Opção inválida")
-
-
-
-def exercicios():
-    while True:
-        print("--exercicios--")
-        print("G- lista de exercicios")
-        print("H- enviar exercicios")
-        print ("0 - voltar")
-
-        opcao = input("escolha um opcao: ").upper()
-
-        if opcao == "G":
-            print("Lista de exercícios")
-        elif opcao == "H":
-            print("Enviar exercícios")
-        elif opcao == "0":
-            break
-        else:
-            print("Opção inválida")
-
-
+# ================= RELATÓRIOS =================
 
 def relatorios():
-    while True:
-        print("--relatorios--")
-        print("I- relatorio de alunos")
-        print("J- relatorio de professores")
-        print("0 - voltar")
+    print("\n=== ALUNOS ===")
+    listar_alunos()
 
-        opcao = input("escolha um opcao: ").upper()
+    print("\n=== PROFESSORES ===")
+    listar_professores()
 
-        if opcao == "I":
-            print("Relatório de alunos")
-        elif opcao == "J":
-            print("Relatório de professores")
-        elif opcao == "0":
-            break
-        else:
-            print("Opção inválida")
+    print("\n=== EXERCÍCIOS ===")
+    for a in alunos:
+        print(a["nome"], a["planos"])
 
+    print("\n=== FREQUÊNCIA ===")
+    for a in alunos:
+        print(a["nome"], a["frequencia"])
+
+
+# ================= MENU =================
 
 def menu():
     while True:
-        print("\n==== menu==")
-        print("1- area do aluno")
-        print("2- area do professor")
-        print("3- exercicios")
-        print("4- relatorios")
-        print("0- sair")
+        print("""
+1 - Área do aluno
+2 - Área do professor
+3 - Plano de exercícios
+4 - Frequência
+5 - Relatórios
+0 - Sair
+""")
+        op = input("Opção: ")
 
-        opcao = input("escolha uma opcao: ")
+        if op == "1": area_aluno()
+        elif op == "2": area_professor()
+        elif op == "3": cadastrar_plano()
+        elif op == "4": registrar_frequencia()
+        elif op == "5": relatorios()
+        elif op == "0": break
 
-        if opcao == "1":
-            area_do_aluno()
-        elif opcao == "2":
-            area_do_professor()
-        elif opcao == "3":
-            exercicios()
-        elif opcao == "4":
-            relatorios()
-        elif opcao == "0":
-            print("Saindo do sistema...")
-            break
-        else:
-            print("Opção inválida")
 
-# executar o programa
 menu()
-    
+

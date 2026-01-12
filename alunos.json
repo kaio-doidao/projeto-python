@@ -1,0 +1,89 @@
+[
+    {
+        "nome": "Levy",
+        "idade": 15,
+        "peso": 64.0,
+        "planos": {
+            "segunda": {
+                "grupo": "peito",
+                "exercicios": []
+            },
+            "quinta": {
+                "grupo": "perna",
+                "exercicios": [
+                    "agachamento",
+                    "leg",
+                    "extensora",
+                    "stiff",
+                    "mesa flexora"
+                ]
+            }
+        },
+        "frequencia": {
+            "segunda": {
+                "presente": false,
+                "feitos": 0
+            },
+            "quinta": {
+                "presente": true,
+                "feitos": 7
+            }
+        }
+    },
+    {
+        "nome": "caio",
+        "idade": 14,
+        "peso": 55.0,
+        "planos": {
+            "terca": {
+                "grupo": "perna",
+                "exercicios": []
+            },
+            "quarta": {
+                "grupo": "costas",
+                "exercicios": [
+                    "barra fixa",
+                    "remada baixa",
+                    "cavalinho"
+                ]
+            }
+        },
+        "frequencia": {}
+    },
+    {
+        "nome": "sofocles",
+        "idade": 15,
+        "peso": 80.0,
+        "planos": {
+            "quarta": {
+                "grupo": "costas",
+                "exercicios": []
+            },
+            "sexta": {
+                "grupo": "ombro",
+                "exercicios": [
+                    "elevacao frontal",
+                    "lateral",
+                    "desenvolvimento"
+                ]
+            }
+        },
+        "frequencia": {}
+    },
+    {
+        "nome": "Kaio",
+        "idade": 16,
+        "peso": 75.0,
+        "planos": {
+            "segunda": {
+                "grupo": "triceps",
+                "exercicios": [
+                    "testa",
+                    "whey",
+                    "barra"
+                ]
+            }
+        },
+        "frequencia": {}
+    }
+]
