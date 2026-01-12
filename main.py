@@ -3,6 +3,8 @@ import os
 
 ARQ_ALUNOS = "alunos.json"
 ARQ_PROFESSORES = "professores.json"
+ARQ_EXERCICIOS = "exercicios.json"
+
 DIAS = ["segunda", "terca", "quarta", "quinta", "sexta"]
 
 
@@ -21,6 +23,7 @@ def salvar(arq, dados):
 
 alunos = carregar(ARQ_ALUNOS)
 professores = carregar(ARQ_PROFESSORES)
+exercicios = carregar(ARQ_EXERCICIOS)
 
 
 # ================= UTIL =================
@@ -30,11 +33,50 @@ def escolher_dia():
         print(f"{i} - {d.capitalize()}")
     return DIAS[int(input("Dia: ")) - 1]
 
-
 def escolher_aluno():
     for i, a in enumerate(alunos, 1):
         print(f"{i} - {a['nome']}")
     return alunos[int(input("Aluno: ")) - 1]
+
+
+# ================= EXERCÍCIOS (CRUD) =================
+
+def cadastrar_exercicio():
+    exercicios.append({
+        "nome": input("Nome do exercício: "),
+        "grupo": input("Grupo muscular: ")
+    })
+    salvar(ARQ_EXERCICIOS, exercicios)
+
+def listar_exercicios():
+    for i, e in enumerate(exercicios, 1):
+        print(f"{i} - {e['nome']} ({e['grupo']})")
+
+def dados_exercicios():
+    for e in exercicios:
+        print(e)
+
+def excluir_exercicio():
+    listar_exercicios()
+    exercicios.pop(int(input("Excluir exercício: ")) - 1)
+    salvar(ARQ_EXERCICIOS, exercicios)
+
+
+def area_exercicios():
+    while True:
+        print("\n-- EXERCÍCIOS --")
+        print("A - Cadastrar")
+        print("B - Listar")
+        print("C - Dados")
+        print("D - Excluir")
+        print("0 - Voltar")
+        op = input("Opção: ").upper()
+
+        if op == "A": cadastrar_exercicio()
+        elif op == "B": listar_exercicios()
+        elif op == "C": dados_exercicios()
+        elif op == "D": excluir_exercicio()
+        elif op == "0": break
 
 
 # ================= ALUNOS =================
@@ -123,22 +165,24 @@ def area_professor():
         elif op == "0": break
 
 
-# ================= PLANOS =================
+# ================= PLANO DE EXERCÍCIOS =================
 
 def cadastrar_plano():
     aluno = escolher_aluno()
     dia = escolher_dia()
     grupo = input("Grupo muscular: ")
-    exercicios = []
 
+    lista = []
+    listar_exercicios()
     while True:
-        ex = input("Exercício (enter p/ sair): ")
-        if not ex: break
-        exercicios.append(ex)
+        op = input("Número do exercício (enter p/ sair): ")
+        if not op:
+            break
+        lista.append(exercicios[int(op) - 1]["nome"])
 
     aluno["planos"][dia] = {
         "grupo": grupo,
-        "exercicios": exercicios
+        "exercicios": lista
     }
     salvar(ARQ_ALUNOS, alunos)
 
@@ -149,34 +193,16 @@ def registrar_frequencia():
     aluno = escolher_aluno()
     dia = escolher_dia()
 
-    while True:
-        resp = input("Presente? (s/n): ").strip().lower()
-        if resp in ["s", "sim"]:
-            presente = True
-            break
-        elif resp in ["n", "nao", "não"]:
-            presente = False
-            break
-        else:
-            print("Digite apenas 's' ou 'n'.")
+    resp = input("Presente? (s/n): ").lower()
+    presente = resp in ["s", "sim"]
 
-    if presente:
-        while True:
-            try:
-                feitos = int(input("Quantos exercícios fez hoje? "))
-                break
-            except ValueError:
-                print("Digite um número válido.")
-    else:
-        feitos = 0
+    feitos = int(input("Exercícios feitos: ")) if presente else 0
 
     aluno["frequencia"][dia] = {
         "presente": presente,
         "feitos": feitos
     }
-
     salvar(ARQ_ALUNOS, alunos)
-    print("Frequência registrada com sucesso!")
 
 
 # ================= RELATÓRIOS =================
@@ -188,7 +214,7 @@ def relatorios():
     print("\n=== PROFESSORES ===")
     listar_professores()
 
-    print("\n=== EXERCÍCIOS ===")
+    print("\n=== EXERCÍCIOS DOS ALUNOS ===")
     for a in alunos:
         print(a["nome"], a["planos"])
 
@@ -204,20 +230,23 @@ def menu():
         print("""
 1 - Área do aluno
 2 - Área do professor
-3 - Plano de exercícios
-4 - Frequência
-5 - Relatórios
+3 - Exercícios
+4 - Plano de exercícios
+5 - Frequência
+6 - Relatórios
 0 - Sair
 """)
         op = input("Opção: ")
 
         if op == "1": area_aluno()
         elif op == "2": area_professor()
-        elif op == "3": cadastrar_plano()
-        elif op == "4": registrar_frequencia()
-        elif op == "5": relatorios()
+        elif op == "3": area_exercicios()
+        elif op == "4": cadastrar_plano()
+        elif op == "5": registrar_frequencia()
+        elif op == "6": relatorios()
         elif op == "0": break
 
 
 menu()
+
 

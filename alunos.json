@@ -6,7 +6,11 @@
         "planos": {
             "segunda": {
                 "grupo": "peito",
-                "exercicios": []
+                "exercicios": [
+                    "supino reto",
+                    "agachamento",
+                    "barra fixa"
+                ]
             },
             "quinta": {
                 "grupo": "perna",
@@ -21,8 +25,8 @@
         },
         "frequencia": {
             "segunda": {
-                "presente": false,
-                "feitos": 0
+                "presente": true,
+                "feitos": 3
             },
             "quinta": {
                 "presente": true,
@@ -37,7 +41,10 @@
         "planos": {
             "terca": {
                 "grupo": "perna",
-                "exercicios": []
+                "exercicios": [
+                    "agachamento",
+                    "barra fixa"
+                ]
             },
             "quarta": {
                 "grupo": "costas",
@@ -48,7 +55,12 @@
                 ]
             }
         },
-        "frequencia": {}
+        "frequencia": {
+            "terca": {
+                "presente": true,
+                "feitos": 3
+            }
+        }
     },
     {
         "nome": "sofocles",
@@ -68,7 +80,12 @@
                 ]
             }
         },
-        "frequencia": {}
+        "frequencia": {
+            "quarta": {
+                "presente": true,
+                "feitos": 4
+            }
+        }
     },
     {
         "nome": "Kaio",
@@ -84,6 +101,11 @@
                 ]
             }
         },
-        "frequencia": {}
+        "frequencia": {
+            "quinta": {
+                "presente": true,
+                "feitos": 3
+            }
+        }
     }
 ]
