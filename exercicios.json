@@ -4,11 +4,103 @@
         "grupo": "peito"
     },
     {
-        "nome": "agachamento",
-        "grupo": "perna"
-    },
-    {
         "nome": "barra fixa",
         "grupo": "dorsal"
+    },
+    {
+        "nome": "supino inclinado",
+        "grupo": "peito"
+    },
+    {
+        "nome": "supino declinado",
+        "grupo": "peito"
+    },
+    {
+        "nome": "peck deck",
+        "grupo": "peito"
+    },
+    {
+        "nome": "puxada alta",
+        "grupo": "dorsal"
+    },
+    {
+        "nome": "remada baixa",
+        "grupo": "dorsal"
+    },
+    {
+        "nome": "serrote",
+        "grupo": "dorsal"
+    },
+    {
+        "nome": "alternado",
+        "grupo": "bíceps"
+    },
+    {
+        "nome": "barra",
+        "grupo": "bíceps"
+    },
+    {
+        "nome": "banco scoot",
+        "grupo": "bíceps"
+    },
+    {
+        "nome": "barra",
+        "grupo": "tríceps"
+    },
+    {
+        "nome": "testa",
+        "grupo": "tríceps"
+    },
+    {
+        "nome": "francês",
+        "grupo": "tríceps"
+    },
+    {
+        "nome": "elevação frontal",
+        "grupo": "ombro"
+    },
+    {
+        "nome": "elevação lateral",
+        "grupo": "ombro"
+    },
+    {
+        "nome": "desenvolvimento",
+        "grupo": "ombro"
+    },
+    {
+        "nome": "extensora",
+        "grupo": "coxa"
+    },
+    {
+        "nome": "agachamento livre",
+        "grupo": "coxa"
+    },
+    {
+        "nome": "leg press",
+        "grupo": "coxa"
+    },
+    {
+        "nome": "agachamento hack",
+        "grupo": "coxa"
+    },
+    {
+        "nome": "mesa flexora",
+        "grupo": "posterior da coxa"
+    },
+    {
+        "nome": "cadeira flexora",
+        "grupo": "posterior da coxa"
+    },
+    {
+        "nome": "stiff",
+        "grupo": "posterior da coxa"
+    },
+    {
+        "nome": "panturrilha em pé",
+        "grupo": "panturrilha"
+    },
+    {
+        "nome": "panturrilha sentado",
+        "grupo": "panturrilha"
     }
 ]

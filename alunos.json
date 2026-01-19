@@ -8,103 +8,125 @@
                 "grupo": "peito",
                 "exercicios": [
                     "supino reto",
-                    "agachamento",
-                    "barra fixa"
+                    "supino inclinado",
+                    "supino declinado",
+                    "peck deck",
+                    "barra",
+                    "testa",
+                    "francês"
+                ]
+            },
+            "terca": {
+                "grupo": "coxa e posterior",
+                "exercicios": [
+                    "extensora",
+                    "agachamento livre",
+                    "leg press",
+                    "mesa flexora",
+                    "cadeira flexora",
+                    "stiff"
+                ]
+            },
+            "quarta": {
+                "grupo": "dorsal e bíceps",
+                "exercicios": [
+                    "barra fixa",
+                    "puxada alta",
+                    "remada baixa",
+                    "serrote",
+                    "alternado",
+                    "barra",
+                    "banco scoot"
                 ]
             },
             "quinta": {
-                "grupo": "perna",
+                "grupo": "ombro e panturrilha",
                 "exercicios": [
-                    "agachamento",
-                    "leg",
-                    "extensora",
-                    "stiff",
-                    "mesa flexora"
+                    "elevação frontal",
+                    "elevação lateral",
+                    "desenvolvimento",
+                    "panturrilha em pé",
+                    "panturrilha sentado"
                 ]
             }
         },
         "frequencia": {
             "segunda": {
                 "presente": true,
-                "feitos": 3
+                "feitos": 7
+            },
+            "terca": {
+                "presente": true,
+                "feitos": 6
+            },
+            "quarta": {
+                "presente": true,
+                "feitos": 7
             },
             "quinta": {
                 "presente": true,
-                "feitos": 7
+                "feitos": 5
+            },
+            "sexta": {
+                "presente": false,
+                "feitos": 0
             }
         }
     },
     {
-        "nome": "caio",
+        "nome": "Caio",
         "idade": 14,
         "peso": 55.0,
         "planos": {
             "terca": {
                 "grupo": "perna",
                 "exercicios": [
-                    "agachamento",
-                    "barra fixa"
-                ]
-            },
-            "quarta": {
-                "grupo": "costas",
-                "exercicios": [
-                    "barra fixa",
-                    "remada baixa",
-                    "cavalinho"
+                    "agachamento"
                 ]
             }
         },
         "frequencia": {
             "terca": {
-                "presente": true,
-                "feitos": 3
+                "presente": false,
+                "feitos": 0
             }
         }
     },
     {
         "nome": "sofocles",
         "idade": 15,
-        "peso": 80.0,
+        "peso": 89.0,
         "planos": {
             "quarta": {
-                "grupo": "costas",
-                "exercicios": []
-            },
-            "sexta": {
-                "grupo": "ombro",
+                "grupo": "dorsal",
                 "exercicios": [
-                    "elevacao frontal",
-                    "lateral",
-                    "desenvolvimento"
+                    "barra fixa"
                 ]
             }
         },
         "frequencia": {
             "quarta": {
                 "presente": true,
-                "feitos": 4
+                "feitos": 1
             }
         }
     },
     {
         "nome": "Kaio",
         "idade": 16,
-        "peso": 75.0,
+        "peso": 70.0,
         "planos": {
-            "segunda": {
+            "quinta": {
                 "grupo": "triceps",
                 "exercicios": [
-                    "testa",
-                    "whey",
-                    "barra"
+                    "supino reto"
                 ]
             }
         },
         "frequencia": {
             "quinta": {
                 "presente": true,
-                "feitos": 3
+                "feitos": 1
             }
         }
     }
