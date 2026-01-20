@@ -128,7 +128,8 @@ def area_aluno():
 def cadastrar_professor():
     professores.append({
         "nome": input("Nome: "),
-        "area": input("Área: ")
+        "area": input("Área: "),
+        "horário": input("Horário: ")
     })
     salvar(ARQ_PROFESSORES, professores)
 

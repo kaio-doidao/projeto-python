@@ -1,10 +1,17 @@
 [
     {
-        "nome": "dani",
-        "area": "português"
+        "nome": "jardel",
+        "area": "musculação",
+        "horário": "tarde"
     },
     {
-        "nome": "ericky",
-        "area": "educacao fisica"
+        "nome": "Zé",
+        "area": "musculação",
+        "horário": "manhã"
+    },
+    {
+        "nome": "Val",
+        "area": "Jiu-jitsu",
+        "horário": "noite"
     }
 ]
