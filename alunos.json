@@ -129,5 +129,32 @@
                 "feitos": 1
             }
         }
+    },
+    {
+        "nome": "augusto",
+        "idade": 15,
+        "peso": 90.0,
+        "planos": {
+            "segunda": {
+                "grupo": "perna completo",
+                "exercicios": [
+                    "extensora",
+                    "agachamento livre",
+                    "leg press",
+                    "agachamento hack",
+                    "mesa flexora",
+                    "cadeira flexora",
+                    "stiff",
+                    "panturrilha em pé",
+                    "panturrilha sentado"
+                ]
+            }
+        },
+        "frequencia": {
+            "segunda": {
+                "presente": true,
+                "feitos": 8
+            }
+        }
     }
 ]
