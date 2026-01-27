@@ -48,6 +48,18 @@
                     "panturrilha em pé",
                     "panturrilha sentado"
                 ]
+            },
+            "sexta": {
+                "grupo": "peito e tríceps",
+                "exercicios": [
+                    "supino reto",
+                    "supino inclinado",
+                    "supino declinado",
+                    "peck deck",
+                    "barra",
+                    "testa",
+                    "francês"
+                ]
             }
         },
         "frequencia": {
@@ -68,8 +80,8 @@
                 "feitos": 5
             },
             "sexta": {
-                "presente": false,
-                "feitos": 0
+                "presente": true,
+                "feitos": 8
             }
         }
     },
