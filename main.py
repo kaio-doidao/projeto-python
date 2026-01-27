@@ -7,6 +7,9 @@ ARQ_EXERCICIOS = "exercicios.json"
 
 DIAS = ["segunda", "terca", "quarta", "quinta", "sexta"]
 
+print("""
+
+""")
 
 # ================= ARQUIVOS =================
 
@@ -86,6 +89,7 @@ def cadastrar_aluno():
         "nome": input("Nome: "),
         "idade": int(input("Idade: ")),
         "peso": float(input("Peso: ")),
+        "altura": float(input("Altura: ")),
         "planos": {},
         "frequencia": {}
     })
@@ -128,7 +132,8 @@ def area_aluno():
 def cadastrar_professor():
     professores.append({
         "nome": input("Nome: "),
-        "area": input("Área: ")
+        "area": input("Área: "),
+        "horário": input("Horário: ")
     })
     salvar(ARQ_PROFESSORES, professores)
 
