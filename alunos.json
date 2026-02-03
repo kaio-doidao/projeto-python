@@ -176,5 +176,13 @@
         "altura": 1.48,
         "planos": {},
         "frequencia": {}
+    },
+    {
+        "nome": "lucca",
+        "idade": 16,
+        "peso": 77.0,
+        "altura": 1.8,
+        "planos": {},
+        "frequencia": {}
     }
 ]
